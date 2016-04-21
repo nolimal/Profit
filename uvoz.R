@@ -74,13 +74,17 @@ DF<-merge(stockData$"WFC"[,4],
 # it has to be data.frame for easier work
 Data <- as.data.frame(DF)
 
+# Izbrani tickerji
 # View(stocksLst)
+
+# Vsi izbrani s podatki close
 # View(Data)
+
+# Vsi podatki za ticker WFC
 # View(stockData$WFC)
+
 # View(stockData$` AAPL`)
 # names(stockData$WFC
 
 
 cat("Končana vizualizacija.r.\n")
-
-
