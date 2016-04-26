@@ -88,3 +88,4 @@ Data <- as.data.frame(DF)
 
 
 cat("Končana vizualizacija.r.\n")
+#Proba
