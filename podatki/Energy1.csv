@@ -50,7 +50,7 @@ CVE;Cenovus Energy Inc;13.apr;10864855093.36;n/a;n/a;Energy;Oil & Gas Production
 CGG;CGG;0.8311;2.973.609.943.636;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/cgg
 CHK;Chesapeake Energy Corporation;4.maj;2992467213;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/chk
 CHKR;Chesapeake Granite Wash Trust;feb.92;136510000;n/a;2011;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/chkr
-CVX;Chevron Corporation;95.24;179351805535.8;n/a;n/a;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/cvx
+CVX;Chevron Corporation;95.24;179351805535.8;n/a;1970;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/cvx
 MY;China Ming Yang Wind Power Group Limited;feb.39;298930060.21;n/a;2010;Energy;Industrial Machinery/Components;http://www.nasdaq.com/symbol/my
 SNP;China Petroleum & Chemical Corporation;66.31;78431730322.36;n/a;n/a;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/snp
 CYD;China Yuchai International Limited;sep.42;359803550.52;n/a;1994;Energy;Industrial Machinery/Components;http://www.nasdaq.com/symbol/cyd
@@ -113,7 +113,7 @@ ERN;Erin Energy Corp.;jan.66;351943875.78;n/a;n/a;Energy;Oil & Gas Production;ht
 EVEP;EV Energy Partners, L.P.;2.dec;103997053.68;n/a;2006;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/evep
 EPM;Evolution Petroleum Corporation, Inc.;5.jan;167695369.5;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/epm
 XCO;EXCO Resources NL;1.mar;291411801.37;n/a;2006;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/xco
-XOM;Exxon Mobil Corporation;83.32;346007680661.88;n/a;n/a;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/xom
+XOM;Exxon Mobil Corporation;83.32;346007680661.88;n/a;1970;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/xom
 FPP;FieldPoint Petroleum Corporation;0.568;5.049.577.368;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/fpp
 FTI;FMC Technologies, Inc.;27.23;6178659719.89;n/a;n/a;Energy;Metal Fabrications;http://www.nasdaq.com/symbol/fti
 FES;Forbes Energy Services Ltd;0.38;8441644.9;n/a;n/a;Energy;Oilfield Services/Equipment;http://www.nasdaq.com/symbol/fes
@@ -121,7 +121,7 @@ FELP;Foresight Energy LP;jan.35;175698904.95;n/a;2014;Energy;Coal Mining;http://
 FET;Forum Energy Technologies, Inc.;13.25;1202135810.75;n/a;2012;Energy;Metal Fabrications;http://www.nasdaq.com/symbol/fet
 FI;Frank&#39;;;;;;;
 GST;Gastar Exploration Inc.;jan.26;103114966.5;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/gst
-GE;General Electric Company;30.71;286542951104.3;n/a;n/a;Energy;Consumer Electronics/Appliances;http://www.nasdaq.com/symbol/ge
+GE;General Electric Company;30.71;286542951104.3;n/a;1962;Energy;Consumer Electronics/Appliances;http://www.nasdaq.com/symbol/ge
 GEL;Genesis Energy, L.P.;30.maj;3304875500.9;n/a;1996;Energy;Oil Refining/Marketing;http://www.nasdaq.com/symbol/gel
 GPRK;Geopark Ltd;feb.92;167885864.28;n/a;2014;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/gprk
 GLP;Global Partners LP;13.45;457240322.35;n/a;2005;Energy;Oil Refining/Marketing;http://www.nasdaq.com/symbol/glp
@@ -221,7 +221,7 @@ PGH;Pengrowth Energy Corporation;jan.24;673360389.28;n/a;n/a;Energy;Oil & Gas Pr
 PWE;Penn West Petroleum Ltd;0.935;469.522.557.405;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/pwe
 PBT;Permian Basin Royalty Trust;6.mar;293635414.8;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/pbt
 PZE;Petrobras Argentina S.A.;jun.45;1302407748.9;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/pze
-PTR;PetroChina Company Limited;63.86;116877196423.08;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/ptr
+PTR;PetroChina Company Limited;63.86;116877196423.08;n/a;2000;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/ptr
 PBR;Petroleo Brasileiro S.A.- Petrobras;maj.89;38416043458.85;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/pbr
 PQ;Petroquest Energy Inc;0.6;42320741.4;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/pq
 PSX;Phillips 66;84.58;44612557834.52;n/a;n/a;Energy;Integrated oil Companies;http://www.nasdaq.com/symbol/psx
@@ -284,7 +284,7 @@ TTI;Tetra Technologies, Inc.;jun.74;540929106.56;n/a;n/a;Energy;Oil & Gas Produc
 TPL;Texas Pacific Land Trust;148.64;1206669032.96;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/tpl
 THR;Thermon Group Holdings, Inc.;17.75;571832118.5;n/a;2011;Energy;Industrial Machinery/Components;http://www.nasdaq.com/symbol/thr
 TRCH;Torchlight Energy Resources, Inc.;0.71;24886072.26;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/trch
-TOT;TotalFinaElf, S.A.;45.6;111266639464.8;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/tot
+TOT;TotalFinaElf, S.A.;45.6;111266639464.8;n/a;1991;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/tot
 TAT;Transatlantic Petroleum Ltd;0.6678;274.475.730.186;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/tat
 TGA;Transglobe Energy Corp;jan.73;124915288.37;n/a;n/a;Energy;Oil & Gas Production;http://www.nasdaq.com/symbol/tga
 TLP;Transmontaigne Partners L.P.;40.52;653367414.32;n/a;2005;Energy;Natural Gas Distribution;http://www.nasdaq.com/symbol/tlp

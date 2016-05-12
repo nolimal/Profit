@@ -119,7 +119,7 @@ CIB;BanColombia S.A.;34.44;8281330470;n/a;n/a;Finance;Commercial Banks;http://ww
 BKJ;Bancorp of New Jersey, Inc;113.999;711.381.233.759;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/bkj
 BXS;BancorpSouth, Inc.;20.69;1949779088.88;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/bxs
 BKMU;Bank Mutual Corporation;jul.43;338626462.81;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/bkmu
-BAC;Bank of America Corporation;dec.97;133923434290.49;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/bac
+BAC;Bank of America Corporation;dec.97;133923434290.49;n/a;1986;Finance;Major Banks;http://www.nasdaq.com/symbol/bac
 BAC^W;Bank of America Corporation;26.avg;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/bac^w
 BAC^Y;Bank of America Corporation;26.38;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/bac^y
 BOCH;Bank of Commerce Holdings (CA);jun.25;84010037.5;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/boch
@@ -225,7 +225,7 @@ CIFC;CIFC LLC;jun.91;175615970.87;n/a;n/a;Finance;Finance: Consumer Services;htt
 CINF;Cincinnati Financial Corporation;64.76;10642634956.88;n/a;n/a;Finance;Property-Casualty Insurers;http://www.nasdaq.com/symbol/cinf
 CIT;CIT Group Inc (DEL);30.79;6205366843.36;n/a;n/a;Finance;Finance: Consumer Services;http://www.nasdaq.com/symbol/cit
 BLW;Citigroup Inc.;14.85;549429432.75;n/a;2003;Finance;Major Banks;http://www.nasdaq.com/symbol/blw
-C;Citigroup Inc.;41.12;121226700691.36;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/c
+C;Citigroup Inc.;41.12;121226700691.36;n/a;1977;Finance;Major Banks;http://www.nasdaq.com/symbol/c
 C^K;Citigroup Inc.;27.46;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/c^k
 C^N;Citigroup Inc.;26.18;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/c^n
 CZNC;Citizens & Northern Corp;19.48;236703583.84;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/cznc
@@ -491,7 +491,7 @@ HMN;Horace Mann Educators Corporation;30.36;1226366242.2;n/a;1991;Finance;Proper
 HBNC;Horizon Bancorp (IN);24.maj;287154282.35;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/hbnc
 HLI;Houlihan Lokey, Inc.;24.29;1586719085.56;n/a;2015;Finance;Investment Managers;http://www.nasdaq.com/symbol/hli
 HBMD;Howard Bancorp, Inc.;12.jan;84275507.8;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/hbmd
-HSBC;HSBC Holdings plc;29.86;117559398865.96;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/hsbc
+HSBC;HSBC Holdings plc;29.86;117559398865.96;n/a;2000;Finance;Savings Institutions;http://www.nasdaq.com/symbol/hsbc
 HSEA;HSBC Holdings plc;26.44;0;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/hsea
 HSEB;HSBC Holdings plc;26;0;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/hseb
 HPP;Hudson Pacific Properties, Inc.;29.19;2624769120.12;n/a;2010;Finance;Real Estate;http://www.nasdaq.com/symbol/hpp
@@ -530,7 +530,7 @@ ITG;Investment Technology Group, Inc.;19.49;639088871.96;n/a;n/a;Finance;Investm
 ISBC;Investors Bancorp, Inc.;nov.32;3713120528.92;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/isbc
 ITIC;Investors Title Company;97.96;189713842.16;n/a;n/a;Finance;Specialty Insurers;http://www.nasdaq.com/symbol/itic
 ITUB;Itau Unibanco Banco Holding SA;9.avg;54026809972.32;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/itub
-JPM;J P Morgan Chase & Co;58.2;213609417005.4;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/jpm
+JPM;J P Morgan Chase & Co;58.2;213609417005.4;n/a;1983;Finance;Major Banks;http://www.nasdaq.com/symbol/jpm
 JPM^A;J P Morgan Chase & Co;252.699;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/jpm^a
 JPM^H;J P Morgan Chase & Co;26.mar;0;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/jpm^h
 JGW;J.G. Wentworth Company (The);jan.14;27865094.1;n/a;2013;Finance;Finance: Consumer Services;http://www.nasdaq.com/symbol/jgw
@@ -991,7 +991,7 @@ WFBI;WashingtonFirst Bankshares Inc;22.46;274515687.96;n/a;n/a;Finance;Major Ban
 WSBF;Waterstone Financial, Inc.;13.74;401431398.66;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/wsbf
 WAYN;Wayne Savings Bancshares Inc.;dec.14;33771525.46;n/a;n/a;Finance;Savings Institutions;http://www.nasdaq.com/symbol/wayn
 WEBK;Wellesley Bancorp, Inc.;19.57;48113882.21;n/a;2012;Finance;Banks;http://www.nasdaq.com/symbol/webk
-WFC;Wells Fargo & Company;47.03;238757784030.91;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/wfc
+WFC;Wells Fargo & Company;47.03;238757784030.91;n/a;2013;Finance;Major Banks;http://www.nasdaq.com/symbol/wfc
 WSBC;WesBanco, Inc.;29.78;1141840692.3;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/wsbc
 WTBA;West Bancorporation;17.jun;282845587.2;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/wtba
 WABC;Westamerica Bancorporation;47.71;1211838150.77;n/a;n/a;Finance;Major Banks;http://www.nasdaq.com/symbol/wabc

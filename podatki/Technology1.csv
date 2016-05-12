@@ -32,7 +32,7 @@ ALLT;Allot Communications Ltd.;apr.95;166112604.9;n/a;2006;Technology;Computer C
 MDRX;Allscripts Healthcare Solutions, Inc.;13.59;2573187379.02;n/a;n/a;Technology;EDP Services;http://www.nasdaq.com/symbol/mdrx
 AOSL;Alpha and Omega Semiconductor Limited;dec.77;282697279.7;n/a;2010;Technology;Semiconductors;http://www.nasdaq.com/symbol/aosl
 GOOG;Alphabet Inc.;736.1;506672180488.7;n/a;2004;Technology;Computer Software: Programming, Data Processing;http://www.nasdaq.com/symbol/goog
-GOOGL;Alphabet Inc.;757.54;521429756293.18;n/a;n/a;Technology;Computer Software: Programming, Data Processing;http://www.nasdaq.com/symbol/googl
+GOOGL;Alphabet Inc.;757.54;521429756293.18;n/a;2004;Technology;Computer Software: Programming, Data Processing;http://www.nasdaq.com/symbol/googl
 AYA;Amaya Inc.;dec.28;1643112420.04;n/a;n/a;Technology;Computer Software: Programming, Data Processing;http://www.nasdaq.com/symbol/aya
 AMBA;Ambarella, Inc.;43.64;1411027786.76;n/a;2012;Technology;Semiconductors;http://www.nasdaq.com/symbol/amba
 AMBR;Amber Road, Inc.;maj.29;139269549.63;n/a;2014;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/ambr
@@ -46,7 +46,7 @@ ANSS;ANSYS, Inc.;87.49;7717053175.26;n/a;1996;Technology;Computer Software: Prep
 ATNY;API Technologies Corp.;jan.98;110584584;n/a;n/a;Technology;Semiconductors;http://www.nasdaq.com/symbol/atny
 APIC;Apigee Corporation;9.feb;274167406;n/a;2015;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/apic
 APPF;AppFolio, Inc.;12.mar;412929634.5;n/a;2015;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/appf
-AAPL;Apple Inc.;109.02;6,0447E+11;n/a;1980;Technology;Computer Manufacturing;http://www.nasdaq.com/symbol/aapl
+AAPL;Apple Inc.;109.02;6,04E+11;n/a;1980;Technology;Computer Manufacturing;http://www.nasdaq.com/symbol/aapl
 AMAT;Applied Materials, Inc.;20.94;23677372684.26;n/a;1972;Technology;Semiconductors;http://www.nasdaq.com/symbol/amat
 AMCC;Applied Micro Circuits Corporation;jun.28;524614802.92;n/a;1997;Technology;Semiconductors;http://www.nasdaq.com/symbol/amcc
 AAOI;Applied Optoelectronics, Inc.;15.91;271354548.27;n/a;2013;Technology;Semiconductors;http://www.nasdaq.com/symbol/aaoi
@@ -272,7 +272,7 @@ IPHI;Inphi Corporation;33.83;1349161780.56;n/a;2010;Technology;Semiconductors;ht
 NSP;Insperity, Inc.;51.62;1097312924.3;n/a;n/a;Technology;Professional Services;http://www.nasdaq.com/symbol/nsp
 INST;Instructure, Inc.;17.feb;470645939.2;n/a;2015;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/inst
 IDTI;Integrated Device Technology, Inc.;19.43;2630301781.18;n/a;1984;Technology;Semiconductors;http://www.nasdaq.com/symbol/idti
-INTC;Intel Corporation;31.67;1,49609E+11;n/a;n/a;Technology;Semiconductors;http://www.nasdaq.com/symbol/intc
+INTC;Intel Corporation;31.67;1,50E+11;n/a;n/a;Technology;Semiconductors;http://www.nasdaq.com/symbol/intc
 IDN;Intellicheck Mobilisa, Inc.;jan.56;13984061.52;n/a;1999;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/idn
 ININ;Interactive Intelligence Group, Inc.;35.62;784775921.8;n/a;1999;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/inin
 IMI;Intermolecular, Inc.;feb.35;116376213.55;n/a;2011;Technology;Semiconductors;http://www.nasdaq.com/symbol/imi
@@ -418,7 +418,7 @@ OTIV;On Track Innovations Ltd;0.915;37364916.21;n/a;n/a;Technology;Semiconductor
 OOMA;Ooma, Inc.;6.jan;102746069.8;n/a;2015;Technology;EDP Services;http://www.nasdaq.com/symbol/ooma
 OTEX;Open Text Corporation;53.54;6489722443.38;n/a;1996;Technology;EDP Services;http://www.nasdaq.com/symbol/otex
 OPWR;Opower, Inc.;7.apr;374387164.8;n/a;2014;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/opwr
-ORCL;Oracle Corporation;40.39;1,67613E+11;n/a;1986;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/orcl
+ORCL;Oracle Corporation;40.39;1,68E+11;n/a;1986;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/orcl
 OSIS;OSI Systems, Inc.;62.16;1230159515.76;n/a;1997;Technology;Semiconductors;http://www.nasdaq.com/symbol/osis
 PFIN;P & F Industries, Inc.;sep.73;34958625.1;n/a;n/a;Technology;Industrial Machinery/Components;http://www.nasdaq.com/symbol/pfin
 PANW;Palo Alto Networks, Inc.;140.44;12410749087.68;n/a;2012;Technology;Computer peripheral equipment;http://www.nasdaq.com/symbol/panw
@@ -560,7 +560,7 @@ SNPS;Synopsys, Inc.;47.87;7253637365.71;n/a;1992;Technology;Computer Software: P
 SYNT;Syntel, Inc.;48.41;4063881579.91;n/a;1997;Technology;EDP Services;http://www.nasdaq.com/symbol/synt
 SYRX;Sysorex Global;0.594;14918924.79;n/a;2014;Technology;EDP Services;http://www.nasdaq.com/symbol/syrx
 DATA;Tableau Software, Inc.;44.81;3322625517.57;n/a;2013;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/data
-TSM;Taiwan Semiconductor Manufacturing Company Ltd.;25.51;1,32297E+11;n/a;1997;Technology;Semiconductors;http://www.nasdaq.com/symbol/tsm
+TSM;Taiwan Semiconductor Manufacturing Company Ltd.;25.51;1,32E+11;n/a;1997;Technology;Semiconductors;http://www.nasdaq.com/symbol/tsm
 TTWO;Take-Two Interactive Software, Inc.;35.67;3025263836.85;n/a;1997;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/ttwo
 TAL;TAL International Group, Inc.;13.68;456847580.88;n/a;2005;Technology;Diversified Commercial Services;http://www.nasdaq.com/symbol/tal
 TNGO;Tangoe, Inc.;7.mar;287844986;n/a;2011;Technology;Computer Software: Prepackaged Software;http://www.nasdaq.com/symbol/tngo
