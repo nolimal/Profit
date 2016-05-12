@@ -1,4 +1,4 @@
-setwd("U:/opb")
+setwd("U:/Profit/podatki")
 #install.packages("quantmod")
 library("quantmod")
 #Script to download prices from yahoo
@@ -55,21 +55,21 @@ cat("Končan uvoz.r.\n")
 
 #Making "double" about stock prices on daily basis
 # MATRIX
-DF<-merge(stockData$"WFC"[,4],
-           stockData$` AAPL`[,4],
-           stockData$` BAC`[,4],
-           stockData$` C`[,4],
-           stockData$` CVX`[,4],
-           stockData$` FB`[,4],
-           stockData$` GE`[,4],
-           stockData$` GOOG`[,4],
-           stockData$` GOOGL`[,4],
-           stockData$` HSBC`[,4],
-           stockData$` JPM`[,4],
-           stockData$` MSFT`[,4],
-           stockData$` PTR`[,4],
-           stockData$` TOT`[,4],
-           stockData$` XOM`[,4],
+DF<-merge(stockData$"WFC"[,1:6],
+           stockData$` AAPL`[,1:6],
+           stockData$` BAC`[,1:6],
+           stockData$` C`[,1:6],
+           stockData$` CVX`[,1:6],
+           stockData$` FB`[,1:6],
+           stockData$` GE`[,1:6],
+           stockData$` GOOG`[,1:6],
+           stockData$` GOOGL`[,1:6],
+           stockData$` HSBC`[,1:6],
+           stockData$` JPM`[,1:6],
+           stockData$` MSFT`[,1:6],
+           stockData$` PTR`[,1:6],
+           stockData$` TOT`[,1:6],
+           stockData$` XOM`[,1:6],
            all=TRUE)
 # it has to be data.frame for easier work
 Data <- as.data.frame(DF)
