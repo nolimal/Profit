@@ -67,19 +67,18 @@ company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
 })}
   
   
-  # Funkcija za uvoz podatkov v tabele
-  insert_data <- function(){
-    # Uporabimo funkcijo tryCatch,
-    # da prisilimo prekinitev povezave v primeru napake
-    tryCatch({
-      # Vzpostavimo povezavo z bazo
-      conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
-      
-        dbWriteTable(conn, name="company",value="2. podatki/" , overwrite=T, row.names=FALSE)
-      
-      
-    }, finally = {
-      dbDisconnect(conn)
-    })
-  }
+#   # Funkcija za uvoz podatkov v tabele
+#   insert_data <- function(){
+#  # Funkcija tryCatch prekine povezavo v primeru napake
+#     tryCatch({
+#       # Vzpostavimo povezavo z bazo
+#       conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
+#       
+#         dbWriteTable(conn, name="company",value="2. podatki/Energy5.csv", overwrite=T, row.names=TRUE)
+#       
+#       
+#     }, finally = {
+#       dbDisconnect(conn)
+#     })
+#   }
   
