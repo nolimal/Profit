@@ -1,23 +1,39 @@
+  setwd("U:/Profit/")
 # Neposredno klicanje SQL ukazov v R
 library(dplyr)
 library(RPostgreSQL)
 
-source("baza/auth.R")
+source("baza/auth.R",encoding='UTF-8')
 
 # Povežemo se z gonilnikom za PostgreSQL
 drv <- dbDriver("PostgreSQL")
 
 # Funkcija za brisanje tabel
-
-
-# Uporabimo tryCatch,
-# da prisilimo prekinitev povezave v primeru napake
-tryCatch({
-  # Vzpostavimo povezavo
-  conn <- dbConnect(drv, dbname = db, host = host,
-                    user = user, password = password)
+  # Izbris tabele, če obstaja
+  delete_table <- function(){
+    # Funkcija tryCatch prekine povezavo v primeru napake
+    tryCatch({
+      # Vzpostavimo povezavo
+      conn <- dbConnect(drv, dbname = db, host = host,
+                        user = user, password = password)
+      # Če tabela obstaja, jo zbrišemo, ter najprej zbrišemo tiste, 
+      # ki se navezujejo na druge
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS stock'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS sector'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS company'))
+    }, finally = {
+      dbDisconnect(conn)
+    })
+  }
   
-  company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
+# Funkcija za ustvarjanje tabel
+  create_table <- function(){
+    # Funkcija tryCatch prekine povezavo v primeru napake
+    tryCatch({
+      # Vzpostavimo povezavo
+      conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
+  
+company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     ticker TEXT PRIMARY KEY,
     full_name TEXT NOT NULL,
     ipo INTEGER,
@@ -36,7 +52,11 @@ tryCatch({
     volume INTEGER, 
     adjusted INTEGER)"
   ))
-  
+  sector<- dbSendQuery(conn, build_sql("CREATE TABLE sector (
+    type TEXT PRIMARY KEY,
+    ticker TEXT REFERENCES company(ticker),
+    industry TEXT NOT NULL)"
+  ))
   # na koncu grant da bosta videla oba: ..... manjka.....dbSendQuery(conn, build_sql("GRANT ALL to all tables neki "
   
 }, finally = {
@@ -44,4 +64,22 @@ tryCatch({
   # saj preveč odprtih povezav ne smemo imeti
   dbDisconnect(conn)
   # Koda v finally bloku se izvede, preden program konča z napako
-})
+})}
+  
+  
+  # Funkcija za uvoz podatkov v tabele
+  insert_data <- function(){
+    # Uporabimo funkcijo tryCatch,
+    # da prisilimo prekinitev povezave v primeru napake
+    tryCatch({
+      # Vzpostavimo povezavo z bazo
+      conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
+      
+        dbWriteTable(conn, name="company",value="2. podatki/" , overwrite=T, row.names=FALSE)
+      
+      
+    }, finally = {
+      dbDisconnect(conn)
+    })
+  }
+  
