@@ -72,14 +72,14 @@ Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
 #Stock<-read.csv("3.Podatki/Stock.csv",fileEncoding = "Windows-1250")
 
 #3. Sector
-#Sector<-read.csv("2. podatki/Sector.csv",fileEncoding = "Windows-1250")
+Sector<-read.csv("2. podatki/Sector.csv",fileEncoding = "Windows-1250")
 #Funcija, ki vstavi podatke
 insert_data <- function(){
   tryCatch({
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
     dbWriteTable(conn, name="Company",Company,append=T, row.names=FALSE)
-    #dbWriteTable(conn, name="Sector", Sector, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="Sector", Sector, append=T, row.names=FALSE)
     #dbWriteTable(conn, name="continent",vsi_kont,append=T, row.names=FALSE)
     #dbWriteTable(conn, name="country", subset(drzave, select=-X), append=T, row.names=FALSE) 
     #dbWriteTable(conn, name="religion", glavne_religije, append=T, row.names=FALSE) 
