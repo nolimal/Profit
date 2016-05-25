@@ -64,7 +64,37 @@ company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
   dbDisconnect(conn)
   # Koda v finally bloku se izvede, preden program konča z napako
 })}
+#Uvoz podatkov
+#1. Sector
+Sector<-read.csv("2. podatki/Sector.csv",fileEncoding = "Windows-1250")
   
+#2. vsi kontinenti
+#vsi_kont <- read.csv("3.Podatki/vsi_kont.csv",fileEncoding = "Windows-1250")
+
+#3. vse države
+#drzave<-read.csv("3.Podatki/drzave.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
+#Funcija, ki vstavi podatke
+insert_data <- function(){
+  tryCatch({
+    conn <- dbConnect(drv, dbname = db, host = host,
+                      user = user, password = password)
+    
+    dbWriteTable(conn, name="Sector", Sector, append=T, row.names=FALSE)
+    #dbWriteTable(conn, name="continent",vsi_kont,append=T, row.names=FALSE)
+    #dbWriteTable(conn, name="country", subset(drzave, select=-X), append=T, row.names=FALSE) 
+    #dbWriteTable(conn, name="religion", glavne_religije, append=T, row.names=FALSE) 
+    
+  }, finally = {
+    dbDisconnect(conn) 
+    
+  })
+}
+
+delete_table()
+create_table()
+insert_data()
+
+con <- src_postgres(dbname = db, host = host, user = user, password = password)
   
 #   # Funkcija za uvoz podatkov v tabele
 #   insert_data <- function(){
