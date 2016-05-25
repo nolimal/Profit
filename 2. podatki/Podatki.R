@@ -1,7 +1,6 @@
-setwd("U:/Profit/2. podatki/")
-Energy<-read.csv("Energy1.csv", sep=";")
-Technology<-read.csv("Technology1.csv", sep=";")
-Finance<-read.csv("Finance1.csv", sep=";")
+Energy<-read.csv("2. podatki/Energy1.csv", sep=";")
+Technology<-read.csv("2. podatki/Technology1.csv", sep=";")
+Finance<-read.csv("2. podatki/Finance1.csv", sep=";")
 
 Energy_symbols<-Energy$Symbol[c(52,115,123,223,286)]
 Technology_symbols<-Technology$Symbol[c(33,34,48,211,365)]

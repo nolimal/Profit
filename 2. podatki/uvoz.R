@@ -1,4 +1,3 @@
-setwd("U:/Profit/podatki")
 #install.packages("quantmod")
 library("quantmod")
 #Script to download prices from yahoo
@@ -6,13 +5,13 @@ library("quantmod")
 #The tickers will be loaded from a csv file
 
 #Script Parameters
-tickerlist <- "tickers.txt"  #CSV containing tickers on rows
+tickerlist <- "2. podatki/tickers.txt"  #CSV containing tickers on rows
 savefilename <- "stockdata.RData" #The file to save the data in
 startDate = as.Date("2015-01-01") #Specify what date to get the prices from
 maxretryattempts <- 5 #If there is an error downloading a price how many times to retry
 
 #Load the list of ticker symbols from a csv, each row contains a ticker
-stocksLst <- read.csv("tickers.txt", header = F, stringsAsFactors = F)
+stocksLst <- read.csv("2. podatki/tickers.txt", header = F, stringsAsFactors = F)
 stocksLst <- t(stocksLst)
 stockData <- new.env() #Make a new environment for quantmod to store data in
 nrstocks = length(stocksLst[,1]) #The number of stocks to download

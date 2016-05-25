@@ -1,9 +1,8 @@
-  setwd("U:/Profit/")
 # Neposredno klicanje SQL ukazov v R
 library(dplyr)
 library(RPostgreSQL)
 
-source("baza/auth.R",encoding='UTF-8')
+source("3. baza/auth.R",encoding='UTF-8')
 
 # Povežemo se z gonilnikom za PostgreSQL
 drv <- dbDriver("PostgreSQL")
