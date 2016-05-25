@@ -32,7 +32,7 @@ drv <- dbDriver("PostgreSQL")
       # Vzpostavimo povezavo
       conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
   
-company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
+Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     ticker TEXT PRIMARY KEY,
     full_name TEXT NOT NULL,
     ipo INTEGER,
@@ -40,7 +40,7 @@ company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     market_cap INTEGER)"
  ))
   
-  stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
+  Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
     id_number SERIAL PRIMARY KEY,
     ticker TEXT REFERENCES company(ticker),
     date DATE,
@@ -51,7 +51,7 @@ company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     volume INTEGER, 
     adjusted INTEGER)"
   ))
-  sector<- dbSendQuery(conn, build_sql("CREATE TABLE sector (
+  Sector<- dbSendQuery(conn, build_sql("CREATE TABLE sector (
     type TEXT PRIMARY KEY,
     ticker TEXT REFERENCES company(ticker),
     industry TEXT NOT NULL)"
@@ -65,21 +65,21 @@ company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
   # Koda v finally bloku se izvede, preden program konča z napako
 })}
 #Uvoz podatkov
-#1. Sector
-Sector<-read.csv("2. podatki/Sector.csv",fileEncoding = "Windows-1250")
+#1. Company
+Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
   
-#2. vsi kontinenti
-#vsi_kont <- read.csv("3.Podatki/vsi_kont.csv",fileEncoding = "Windows-1250")
+#2. Stock
+#Stock<-read.csv("3.Podatki/Stock.csv",fileEncoding = "Windows-1250")
 
-#3. vse države
-#drzave<-read.csv("3.Podatki/drzave.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
+#3. Sector
+#Sector<-read.csv("2. podatki/Sector.csv",fileEncoding = "Windows-1250")
 #Funcija, ki vstavi podatke
 insert_data <- function(){
   tryCatch({
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
-    
-    dbWriteTable(conn, name="Sector", Sector, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="Company",Company,append=T, row.names=FALSE)
+    #dbWriteTable(conn, name="Sector", Sector, append=T, row.names=FALSE)
     #dbWriteTable(conn, name="continent",vsi_kont,append=T, row.names=FALSE)
     #dbWriteTable(conn, name="country", subset(drzave, select=-X), append=T, row.names=FALSE) 
     #dbWriteTable(conn, name="religion", glavne_religije, append=T, row.names=FALSE) 
@@ -93,9 +93,6 @@ insert_data <- function(){
 delete_table()
 create_table()
 insert_data()
-
-con <- src_postgres(dbname = db, host = host, user = user, password = password)
-  
 #   # Funkcija za uvoz podatkov v tabele
 #   insert_data <- function(){
 #  # Funkcija tryCatch prekine povezavo v primeru napake
