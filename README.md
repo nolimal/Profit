@@ -1,5 +1,5 @@
 # Profit
-![ER diagram](ER diagram.png)
+![ER diagram](ER diagram1.png)
 
 
 ### Viri:
