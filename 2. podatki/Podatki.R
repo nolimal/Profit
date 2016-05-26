@@ -19,10 +19,8 @@ ceo<-c("John S. Watson","Jeffrey R. Immelt","Dongjin Wang","Patrick Pouyanné","
 Sektor[,8]<-ceo
 colnames(Sektor)[8]<-"CEO"
 
-Company<-Sektor[,c(1,2,5,8,4)]
-Sector<-Sektor[,c(6,1,7)]
+Company<-Sektor[,c(1,2,5,8,4,6,7)]
 write.csv(Energy5, "2. podatki/Energy5.csv")
 write.csv(Finance5, "2. podatki/Finance5.csv")
 write.csv(Technology5, "2. podatki/Technology5.csv")
-write.csv(Sector,"2. podatki/Sector.csv")
 write.csv(Company,"2. podatki/Company.csv")
