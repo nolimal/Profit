@@ -15,8 +15,8 @@ drv <- dbDriver("PostgreSQL")
       # Vzpostavimo povezavo
       conn <- dbConnect(drv, dbname = db, host = host,
                         user = user, password = password)
-      # Če tabela obstaja, jo zbrišemo, ter najprej zbrišemo tiste, 
-      # ki se navezujejo na druge
+      # Če tabela obstaja, jo zbrišemo s funkcijo DROP table. 
+      # paziti poramo na vrstni red, saj moramo najprej zbrisati tiste, ki se navezujejo na druge
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS stock'))
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS company'))
     }, finally = {
@@ -30,7 +30,8 @@ drv <- dbDriver("PostgreSQL")
     tryCatch({
       # Vzpostavimo povezavo
       conn <- dbConnect(drv, dbname = db, host = host, user = user, password = password)
-  
+
+#Ustvarimo tabelo Company
 Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     ticker TEXT PRIMARY KEY,
     full_name TEXT NOT NULL,
@@ -40,8 +41,9 @@ Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     type TEXT NOT NULL,
     industry TEXT NOT NULL)"
  ))
-  
-  Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
+
+#Ustvarimo tabelo Stock
+Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
     id_number SERIAL PRIMARY KEY,
     ticker TEXT REFERENCES company(ticker),
     date DATE,
@@ -55,17 +57,18 @@ Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
   # na koncu grant da bosta videla oba: ..... manjka.....dbSendQuery(conn, build_sql("GRANT ALL to all tables neki "
   
 }, finally = {
-  # Na koncu nujno prekinemo povezavo z bazo,
-  # saj preveč odprtih povezav ne smemo imeti
+  # Prekinemo povezavo
   dbDisconnect(conn)
-  # Koda v finally bloku se izvede, preden program konča z napako
+  
 })}
+  
+  
 #Uvoz podatkov
 #1. Company
 Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
   
 #2. Stock
-#Stock<-read.csv("3.Podatki/Stock.csv",fileEncoding = "Windows-1250")
+#Stock<-read.csv("2. Podatki/Stock.csv",fileEncoding = "Windows-1250")
 
 #Funcija, ki vstavi podatke
 insert_data <- function(){
@@ -73,9 +76,7 @@ insert_data <- function(){
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
     dbWriteTable(conn, name="company",Company %>% select(-X), append=T, row.names=FALSE)
-    #dbWriteTable(conn, name="continent",vsi_kont,append=T, row.names=FALSE)
-    #dbWriteTable(conn, name="country", subset(drzave, select=-X), append=T, row.names=FALSE) 
-    #dbWriteTable(conn, name="religion", glavne_religije, append=T, row.names=FALSE) 
+
     
   }, finally = {
     dbDisconnect(conn) 
