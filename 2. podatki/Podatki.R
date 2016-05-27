@@ -27,3 +27,4 @@ write.csv(Company,"2. podatki/Company.csv")
 
 write.csv(WFC,"2. podatki/WFC.csv")
 write.csv(AAPL,"2. podatki/AAPL.csv")
+write.csv(all.tickers,"2. podatki/Stock.csv")

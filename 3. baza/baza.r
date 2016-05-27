@@ -43,6 +43,20 @@ Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     type TEXT NOT NULL,
     industry TEXT NOT NULL)"
  ))
+
+#Ustvarimo tabelo Stock
+Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
+                                    id_number SERIAL PRIMARY KEY,
+                                    ticker TEXT REFERENCES company(ticker),
+                                    index REAL,
+                                    open REAL,
+                                    high REAL,
+                                    low REAL,
+                                    close REAL,
+                                    volume REAL, 
+                                    adjusted REAL)"
+))
+
 #Ustvarimo tabelo wfc
 wfc<- dbSendQuery(conn, build_sql("CREATE TABLE wfc (
     id INTEGER PRIMARY KEY,
@@ -64,19 +78,6 @@ aapl<- dbSendQuery(conn, build_sql("CREATE TABLE aapl (
     adjusted REAL)"
 ))
 
-
-#Ustvarimo tabelo Stock
-Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
-    id_number SERIAL PRIMARY KEY,
-    ticker TEXT REFERENCES company(ticker),
-    date DATE,
-    open INTEGER,
-    high INTEGER,
-    low INTEGER,
-    close INTEGER,
-    volume INTEGER, 
-    adjusted INTEGER)"
-  ))
   # na koncu grant da bosta videla oba: ..... manjka.....dbSendQuery(conn, build_sql("GRANT ALL to all tables neki "
   
 }, finally = {
@@ -89,11 +90,14 @@ Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
 #Uvoz podatkov
 #1. Company
 Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
+
+#2. Stock
+Stock<-read.csv("2. podatki/Stock.csv",fileEncoding = "Windows-1250")
   
-#2. wfc
+#3. wfc
 wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")
 
-#3. aapl
+#4. aapl
 aapl<-read.csv("2. Podatki/AAPL.csv",fileEncoding = "Windows-1250")
 
 #Funcija, ki vstavi podatke
@@ -102,6 +106,7 @@ insert_data <- function(){
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
     dbWriteTable(conn, name="company",Company %>% select(-X), append=T, row.names=FALSE)
+    dbWriteTable(conn, name="stock",Stock, append=T, row.names=FALSE)
     dbWriteTable(conn, name="wfc",WFC, append=T, row.names=FALSE)
     dbWriteTable(conn, name="aapl",AAPL, append=T, row.names=FALSE)
     
