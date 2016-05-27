@@ -19,6 +19,8 @@ drv <- dbDriver("PostgreSQL")
       # paziti poramo na vrstni red, saj moramo najprej zbrisati tiste, ki se navezujejo na druge
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS stock'))
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS company'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS wfc'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS aapl'))
     }, finally = {
       dbDisconnect(conn)
     })
@@ -41,6 +43,27 @@ Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
     type TEXT NOT NULL,
     industry TEXT NOT NULL)"
  ))
+#Ustvarimo tabelo wfc
+wfc<- dbSendQuery(conn, build_sql("CREATE TABLE wfc (
+    id INTEGER PRIMARY KEY,
+    open REAL,
+    high REAL,
+    low REAL,
+    close REAL,
+    volume REAL, 
+    adjusted REAL)"
+))
+#Ustvarimo tabelo aapl
+aapl<- dbSendQuery(conn, build_sql("CREATE TABLE aapl (
+    id INTEGER PRIMARY KEY,
+    open REAL,
+    high REAL,
+    low REAL,
+    close REAL,
+    volume REAL, 
+    adjusted REAL)"
+))
+
 
 #Ustvarimo tabelo Stock
 Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
@@ -67,8 +90,11 @@ Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
 #1. Company
 Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
   
-#2. Stock
-#Stock<-read.csv("2. Podatki/Stock.csv",fileEncoding = "Windows-1250")
+#2. wfc
+wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")
+
+#3. aapl
+aapl<-read.csv("2. Podatki/AAPL.csv",fileEncoding = "Windows-1250")
 
 #Funcija, ki vstavi podatke
 insert_data <- function(){
@@ -76,7 +102,8 @@ insert_data <- function(){
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
     dbWriteTable(conn, name="company",Company %>% select(-X), append=T, row.names=FALSE)
-
+    dbWriteTable(conn, name="wfc",WFC, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="aapl",AAPL, append=T, row.names=FALSE)
     
   }, finally = {
     dbDisconnect(conn) 

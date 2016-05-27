@@ -24,3 +24,6 @@ write.csv(Energy5, "2. podatki/Energy5.csv")
 write.csv(Finance5, "2. podatki/Finance5.csv")
 write.csv(Technology5, "2. podatki/Technology5.csv")
 write.csv(Company,"2. podatki/Company.csv")
+
+write.csv(WFC,"2. podatki/WFC.csv")
+write.csv(AAPL,"2. podatki/AAPL.csv")

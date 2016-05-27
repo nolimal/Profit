@@ -81,10 +81,16 @@ Data <- as.data.frame(DF)
 
 # Vsi podatki za ticker WFC
 # View(stockData$WFC)
+# names(stockData$WFC)
+WFC<-as.data.frame(stockData$WFC)
+WFC[,"id"]<-c(1:length(WFC[,1]))
+WFC<-WFC[,c(7,1,2,3,4,5,6)]
+# View(WFC)
 
 # View(stockData$` AAPL`)
-# names(stockData$WFC
-
+AAPL<-as.data.frame(stockData$` AAPL`)
+AAPL[,"id"]<-c((length(AAPL[,1])+1):(length(AAPL[,1])*2))
+AAPL<-AAPL[,c(7,1,2,3,4,5,6)]
 
 cat("Končana vizualizacija.r.\n")
 #Proba
