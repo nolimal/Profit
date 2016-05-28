@@ -105,5 +105,3 @@ all.tickers <- tickers %>% lapply(. %>% {
 levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
 
 cat("Končana vizualizacija.r.\n")
-#Proba
-#bla bla
