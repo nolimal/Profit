@@ -78,8 +78,7 @@ aapl<- dbSendQuery(conn, build_sql("CREATE TABLE aapl (
     adjusted REAL)"
 ))
 
-  # na koncu grant da bosta videla oba: ..... manjka.....dbSendQuery(conn, build_sql("GRANT ALL to all tables neki "
-  
+
 }, finally = {
   # Prekinemo povezavo
   dbDisconnect(conn)
@@ -115,7 +114,22 @@ insert_data <- function(){
     
   })
 }
+# Funkcija za grant
+# Dovoljenja za vids in rokv
+grant_table <- function(){
+  # Funkcija tryCatch prekine povezavo v primeru napake
+  tryCatch({
+    # Vzpostavimo povezavo
+    conn <- dbConnect(drv, dbname = db, host = host,
+                      user = user, password = password)
+    dbSendQuery(conn, build_sql('GRANT ALL ON company,stock TO vids,rokv'))
+  }, finally = {
+    dbDisconnect(conn)
+  })
+}
+
 
 delete_table()
 create_table()
 insert_data()
+grant_table()
