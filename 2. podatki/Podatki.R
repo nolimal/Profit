@@ -28,3 +28,13 @@ write.csv(Company,"2. podatki/Company.csv")
 write.csv(WFC,"2. podatki/WFC.csv")
 write.csv(AAPL,"2. podatki/AAPL.csv")
 write.csv(all.tickers,"2. podatki/Stock.csv")
+
+
+#dodam stolpec daily.change(%)
+change<-c()
+for (i in 1:(nrow(all.tickers)-1)){
+     change<-c(change,round((all.tickers[i+1,6]/all.tickers[i,6])*100-100,2)[[1]])
+ }
+change<-c(0,change)
+all.tickers<-data.frame(all.tickers,change)
+colnames(all.tickers)[9]<-"daily.change(in %)"
