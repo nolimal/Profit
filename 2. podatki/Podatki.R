@@ -67,4 +67,8 @@ all.tickers <- tickers %>% lapply(. %>% {
 }) %>% bind_rows()
 levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
 
+date<-row.names(WFC)
+date<-rep(date,15)
+all.tickers["date"]<-date
+
 write.csv(all.tickers,"2. podatki/Stock.csv")

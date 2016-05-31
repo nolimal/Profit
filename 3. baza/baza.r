@@ -55,7 +55,8 @@ Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
                                     close REAL,
                                     volume REAL, 
                                     adjusted REAL,
-                                    change REAL)"
+                                    change REAL,
+                                    date DATE)"
 ))
 
 #Ustvarimo tabelo wfc
@@ -123,7 +124,7 @@ grant_table <- function(){
     # Vzpostavimo povezavo
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
-    dbSendQuery(conn, build_sql('GRANT ALL ON company,stock TO vids,rokv'))
+    dbSendQuery(conn, build_sql('GRANT ALL ON company,stock TO vids,rokv,matevzn'))
   }, finally = {
     dbDisconnect(conn)
   })
