@@ -54,7 +54,8 @@ Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
                                     low REAL,
                                     close REAL,
                                     volume REAL, 
-                                    adjusted REAL)"
+                                    adjusted REAL,
+                                    change REAL)"
 ))
 
 #Ustvarimo tabelo wfc

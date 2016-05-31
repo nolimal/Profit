@@ -20,6 +20,23 @@ Sektor[,8]<-ceo
 colnames(Sektor)[8]<-"CEO"
 
 Company<-Sektor[,c(1,2,5,8,4,6,7)]
+
+change<-c()
+for (i in 1:(nrow(stockData$WFC)-1)){
+  change<-c(change,round((stockData$WFC[[i+1,4]]/stockData$WFC[[i,4]])-1,2))
+}
+change<-c(0,change)
+stockData$WFC<-merge(stockData$WFC,change)
+
+for (j in stocksLst[2:length(stocksLst)]){
+  change<-c()
+  for (i in 1:(nrow(stockData[[j]])-1)){
+    change<-c(change,round((stockData[[j]][[i+1,4]]/stockData[[j]][[i,4]])-1,2))
+  }
+  change<-c(0,change)
+  stockData[[j]]<-merge(stockData[[j]],change)
+}
+
 write.csv(Energy5, "2. podatki/Energy5.csv")
 write.csv(Finance5, "2. podatki/Finance5.csv")
 write.csv(Technology5, "2. podatki/Technology5.csv")
@@ -27,13 +44,27 @@ write.csv(Company,"2. podatki/Company.csv")
 
 write.csv(WFC,"2. podatki/WFC.csv")
 write.csv(AAPL,"2. podatki/AAPL.csv")
-write.csv(all.tickers,"2. podatki/Stock.csv")
 
 
+# # ne deluje ker je problem pri prehodu na drug ticker
 # #dodam stolpec daily.change(%)
 # change<-c()
 # for (i in 1:(nrow(all.tickers)-1)){
-#      change<-c(change,round((all.tickers[i+1,6]/all.tickers[i,6])-1,2)[[1]])
-#  }
+#   change<-c(change,round((all.tickers[i+1,6]/all.tickers[i,6])-1,2)[[1]])
+# }
 # change<-c(0,change)
 # all.tickers["daily.change"]<-change
+
+library(dplyr)
+#load("2. podatki/stockdata.RData")
+tickers <- stockData$.getSymbols %>% names()
+all.tickers <- tickers %>% lapply(. %>% {
+  data <- data.frame(stockData[[.]])
+  names(data) <- c("Open", "High", "Low", "Close", "Volume", "Adjusted", "Change")
+  data.frame(ticker = factor(., levels = tickers),
+             index = attr(stockData[[.]], "index"),
+             data)
+}) %>% bind_rows()
+levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
+
+write.csv(all.tickers,"2. podatki/Stock.csv")

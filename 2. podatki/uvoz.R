@@ -92,16 +92,16 @@ AAPL<-as.data.frame(stockData$` AAPL`)
 AAPL[,"id"]<-c((length(AAPL[,1])+1):(length(AAPL[,1])*2))
 AAPL<-AAPL[,c(7,1,2,3,4,5,6)]
 
-library(dplyr)
-load("2. podatki/stockdata.RData")
-tickers <- stockData$.getSymbols %>% names()
-all.tickers <- tickers %>% lapply(. %>% {
-  data <- data.frame(stockData[[.]])
-  names(data) <- c("Open", "High", "Low", "Close", "Volume", "Adjusted")
-  data.frame(ticker = factor(., levels = tickers),
-             index = attr(stockData[[.]], "index"),
-             data)
-}) %>% bind_rows()
-levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
+# library(dplyr)
+# load("2. podatki/stockdata.RData")
+# tickers <- stockData$.getSymbols %>% names()
+# all.tickers <- tickers %>% lapply(. %>% {
+#   data <- data.frame(stockData[[.]])
+#   names(data) <- c("Open", "High", "Low", "Close", "Volume", "Adjusted")
+#   data.frame(ticker = factor(., levels = tickers),
+#              index = attr(stockData[[.]], "index"),
+#              data)
+# }) %>% bind_rows()
+# levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
 
 cat("Končana vizualizacija.r.\n")
