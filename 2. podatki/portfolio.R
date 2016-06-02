@@ -2,9 +2,13 @@ datum<-data.frame(row.names(WFC))
 names(datum)<-c("date")
 w<-c()
 for (i in (2:nrow(datum))){
-  w<-c(w,rep(datum[i,1],3))
+  h<-rep(datum[i,1],3)
+  w<-c(w,h)
 }
-date<-w
+date1<-w
+ddate<-row.names(WFC)
+date2<-c()
+for (i in date1){date2<-c(date2,ddate[i])}
 
 
 #stoplec selected tickers
@@ -36,10 +40,12 @@ for (i in 1:(nn-1)){
   }
   vsota<-sum(am[(length(am)-2):length(am)])
   budget[1]<-vsota
-  }
-sel.tickers<-m
+}
+tickers <- stockData$.getSymbols %>% names()
+sel_tickers<-c()
+for (i in m){sel_tickers<-c(sel_tickers,tickers[i])}
 
+portfolioo<-data.frame(date2,sel_tickers,am)
 
-portfolio<-data.frame(date,sel.tickers,am)
-
+write.csv(portfolioo,"2. podatki/Portfolio.csv")
 

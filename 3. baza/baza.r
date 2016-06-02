@@ -19,8 +19,9 @@ drv <- dbDriver("PostgreSQL")
       # paziti poramo na vrstni red, saj moramo najprej zbrisati tiste, ki se navezujejo na druge
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS stock'))
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS company'))
-      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS wfc'))
-      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS aapl'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS portfolio'))
+      # dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS wfc'))
+      # dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS aapl'))
     }, finally = {
       dbDisconnect(conn)
     })
@@ -59,27 +60,34 @@ Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
                                     date DATE)"
 ))
 
-#Ustvarimo tabelo wfc
-wfc<- dbSendQuery(conn, build_sql("CREATE TABLE wfc (
-    id INTEGER PRIMARY KEY,
-    open REAL,
-    high REAL,
-    low REAL,
-    close REAL,
-    volume REAL, 
-    adjusted REAL)"
-))
-#Ustvarimo tabelo aapl
-aapl<- dbSendQuery(conn, build_sql("CREATE TABLE aapl (
-    id INTEGER PRIMARY KEY,
-    open REAL,
-    high REAL,
-    low REAL,
-    close REAL,
-    volume REAL, 
-    adjusted REAL)"
-))
+# #Ustvarimo tabelo wfc
+# wfc<- dbSendQuery(conn, build_sql("CREATE TABLE wfc (
+#     id INTEGER PRIMARY KEY,
+#     open REAL,
+#     high REAL,
+#     low REAL,
+#     close REAL,
+#     volume REAL, 
+#     adjusted REAL)"
+# ))
+# #Ustvarimo tabelo aapl
+# aapl<- dbSendQuery(conn, build_sql("CREATE TABLE aapl (
+#     id INTEGER PRIMARY KEY,
+#     open REAL,
+#     high REAL,
+#     low REAL,
+#     close REAL,
+#     volume REAL, 
+#     adjusted REAL)"
+# ))
 
+Portfolio<- dbSendQuery(conn, build_sql("CREATE TABLE portfolio (
+                                    id INTEGER PRIMARY KEY,
+                                    date2 DATE,
+                                    sel_tickers TEXT NOT NULL,
+                                    am REAL
+                                    )"
+))
 
 }, finally = {
   # Prekinemo povezavo
@@ -94,12 +102,15 @@ Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
 
 #2. Stock
 Stock<-read.csv("2. podatki/Stock.csv",fileEncoding = "Windows-1250")
+
+#3. Portfolio
+Portfolio<-read.csv("2. Podatki/Portfolio.csv",fileEncoding = "Windows-1250")
   
 #3. wfc
-wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")
+#wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")
 
 #4. aapl
-aapl<-read.csv("2. Podatki/AAPL.csv",fileEncoding = "Windows-1250")
+#aapl<-read.csv("2. Podatki/AAPL.csv",fileEncoding = "Windows-1250")
 
 #Funcija, ki vstavi podatke
 insert_data <- function(){
@@ -108,8 +119,9 @@ insert_data <- function(){
                       user = user, password = password)
     dbWriteTable(conn, name="company",Company %>% select(-X), append=T, row.names=FALSE)
     dbWriteTable(conn, name="stock",Stock, append=T, row.names=FALSE)
-    dbWriteTable(conn, name="wfc",WFC, append=T, row.names=FALSE)
-    dbWriteTable(conn, name="aapl",AAPL, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="portfolio",Portfolio, append=T, row.names=FALSE)
+#    dbWriteTable(conn, name="wfc",WFC, append=T, row.names=FALSE)
+#    dbWriteTable(conn, name="aapl",AAPL, append=T, row.names=FALSE)
     
   }, finally = {
     dbDisconnect(conn) 
