@@ -31,7 +31,7 @@ stockData$WFC<-merge(stockData$WFC,change)
 for (j in stocksLst[2:length(stocksLst)]){
   change<-c()
   for (i in 1:(nrow(stockData[[j]])-1)){
-    change<-c(change,round((stockData[[j]][[i+1,4]]/stockData[[j]][[i,4]])-1,5))
+    change<-c(change,round((stockData[[j]][[i+1,4]]/stockData[[j]][[i,4]])-1,7))
   }
   change<-c(0,change)
   stockData[[j]]<-merge(stockData[[j]],change)

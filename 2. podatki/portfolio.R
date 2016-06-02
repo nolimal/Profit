@@ -10,8 +10,10 @@ date<-w
 #stoplec selected tickers
 n<-length(all.tickers$ticker)
 nn<-nrow(stockData$WFC)
-sez<-c()
+#sez<-c()
 m<-c()
+am<-c()
+budget<-1000
 for (i in 1:(nn-1)){
   a<-seq(1,n,nn)+i
   price<-c()
@@ -25,15 +27,19 @@ for (i in 1:(nn-1)){
       m<-c(m,all.tickers[[k,1]])
     }
   }
-  sez<-c(sez,length(m))
-}
+  vsota<-c()
+  for (l in m[(length(m)-2):length(m)]){
+    tickers <- stockData$.getSymbols %>% names()
+    izbrani<-tickers[l]
+    kupimo<-stockData[[izbrani]][[i+1,7]]
+    am<-c(am,(budget/3)+kupimo*(budget/3))
+  }
+  vsota<-sum(am[(length(am)-2):length(am)])
+  budget[1]<-vsota
+  }
 sel.tickers<-m
-#problem, na en dan(na 182 dan) smo zbrali 4 delnice!!
-sez[180:190]
-
-#portfolio<-data.frame(date,sel.tickers)
 
 
-
+portfolio<-data.frame(date,sel.tickers,am)
 
 
