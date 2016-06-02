@@ -38,7 +38,7 @@ shinyUI(
       # Define the sidebar with one input
       sidebarPanel(
         selectInput("type", "Type:", 
-                    choices=c("Energy","Finance","Technology")),
+                    choices=c("All", "Energy","Finance","Technology")),
         hr(),
         helpText("Izbira tipa.")
       ),
