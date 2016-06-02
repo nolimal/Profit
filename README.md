@@ -11,6 +11,6 @@ Zadevo poženi v naslednje vrstnem redu:
 
 1. uvoz.R
 2. Podatki.R
-3. Portfolio
+3. portfolio.R
 4. auth.R
 5. baza.R
