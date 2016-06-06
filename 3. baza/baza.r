@@ -49,7 +49,7 @@ Company<- dbSendQuery(conn, build_sql("CREATE TABLE company (
 Stock<- dbSendQuery(conn, build_sql("CREATE TABLE stock (
                                     id_number SERIAL PRIMARY KEY,
                                     ticker TEXT REFERENCES company(ticker),
-                                    index REAL,
+                                    index TIMESTAMP,
                                     open REAL,
                                     high REAL,
                                     low REAL,
@@ -104,7 +104,7 @@ Company<-read.csv("2. podatki/Company.csv",fileEncoding = "Windows-1250")
 Stock<-read.csv("2. podatki/Stock.csv",fileEncoding = "Windows-1250")
 
 #3. Portfolio
-Portfolio<-read.csv("2. Podatki/Portfolio.csv",fileEncoding = "Windows-1250")
+Portfolio<-read.csv("2. podatki/Portfolio.csv",fileEncoding = "Windows-1250")
   
 #3. wfc
 #wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")

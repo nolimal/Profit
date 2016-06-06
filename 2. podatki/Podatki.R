@@ -67,6 +67,8 @@ all.tickers <- tickers %>% lapply(. %>% {
 }) %>% bind_rows()
 levels(all.tickers$ticker) <- levels(all.tickers$ticker) %>% trimws()
 
+all.tickers$index <- all.tickers$index %>% as.POSIXct(origin="1970-01-01")
+
 date<-row.names(WFC)
 date<-rep(date,15)
 all.tickers["date"]<-date
