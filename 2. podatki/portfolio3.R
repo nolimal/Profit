@@ -45,7 +45,7 @@ tickers <- stockData$.getSymbols %>% names()
 sel_tickers<-c()
 for (i in m){sel_tickers<-c(sel_tickers,tickers[i])}
 
-portfolioo<-data.frame(date2,sel_tickers,am)
+portfolioo3<-data.frame(date2,sel_tickers,am)
 
-write.csv(portfolioo,"2. podatki/Portfolio.csv")
+write.csv(portfolioo3,"2. podatki/Portfolio3.csv")
 
