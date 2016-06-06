@@ -23,6 +23,10 @@ shinyUI(
         selectInput("ticker", "Ticker", 
                     choices=c("All","WFC","JPM","BAC","C","HSBC","AAPL","GOOGL",
                               "GOOG","MSFT","FB","XOM","GE","CVX","PTR","TOT")),
+        selectInput("value", "Vrednost", 
+                    choices=c("open", "high", "low",
+                              "close", "volume", "adjusted"),
+                    selected = "close"),
         hr(),
         helpText("Izbira delnice.")
       ),
