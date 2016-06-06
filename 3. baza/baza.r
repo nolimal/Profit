@@ -21,6 +21,7 @@ drv <- dbDriver("PostgreSQL")
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS company'))
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS portfolio3'))
       dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS portfolio1'))
+      dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS portfolio7'))
       # dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS wfc'))
       # dbSendQuery(conn, build_sql('DROP TABLE IF EXISTS aapl'))
     }, finally = {
@@ -98,6 +99,14 @@ Portfolio1<- dbSendQuery(conn, build_sql("CREATE TABLE portfolio1 (
                                     )"
 ))
 
+Portfolio7<- dbSendQuery(conn, build_sql("CREATE TABLE portfolio7 (
+                                    id INTEGER PRIMARY KEY,
+                                    date2 DATE,
+                                    sel_tickers TEXT NOT NULL,
+                                    am REAL
+                                    )"
+))
+
 }, finally = {
   # Prekinemo povezavo
   dbDisconnect(conn)
@@ -117,6 +126,9 @@ Portfolio3<-read.csv("2. podatki/Portfolio3.csv",fileEncoding = "Windows-1250")
 
 #4. Portfolio1
 Portfolio1<-read.csv("2. podatki/Portfolio1.csv",fileEncoding = "Windows-1250")
+
+#5. Portfolio7
+Portfolio7<-read.csv("2. podatki/Portfolio7.csv",fileEncoding = "Windows-1250")
   
 #3. wfc
 #wfc<-read.csv("2. Podatki/WFC.csv",fileEncoding = "Windows-1250")
@@ -133,6 +145,7 @@ insert_data <- function(){
     dbWriteTable(conn, name="stock",Stock, append=T, row.names=FALSE)
     dbWriteTable(conn, name="portfolio3",Portfolio3, append=T, row.names=FALSE)
     dbWriteTable(conn, name="portfolio1",Portfolio1, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="portfolio7",Portfolio7, append=T, row.names=FALSE)
 #    dbWriteTable(conn, name="wfc",WFC, append=T, row.names=FALSE)
 #    dbWriteTable(conn, name="aapl",AAPL, append=T, row.names=FALSE)
     

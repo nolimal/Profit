@@ -2,7 +2,7 @@ datum<-data.frame(row.names(WFC))
 names(datum)<-c("date")
 w<-c()
 for (i in (2:nrow(datum))){
-  h<-rep(datum[i,1],5)
+  h<-rep(datum[i,1],7)
   w<-c(w,h)
 }
 date1<-w
@@ -25,27 +25,27 @@ for (i in 1:(nn-1)){
     b<-all.tickers[[j,9]]
     price<-c(price,b)
   }
-  dy<-sort(price,decreasing = TRUE)[1:5]
+  dy<-sort(price,decreasing = TRUE)[1:7]
   for (k in a){
     if(all.tickers[[k,9]]%in%dy){
       m<-c(m,all.tickers[[k,1]])
     }
   }
   vsota<-c()
-  for (l in m[(length(m)-4):length(m)]){
+  for (l in m[(length(m)-6):length(m)]){
     tickers <- stockData$.getSymbols %>% names()
     izbrani<-tickers[l]
     kupimo<-stockData[[izbrani]][[i+1,7]]
-    am<-c(am,(budget/5)+kupimo*(budget/5))
+    am<-c(am,(budget/7)+kupimo*(budget/7))
   }
-  vsota<-sum(am[(length(am)-4):length(am)])
+  vsota<-sum(am[(length(am)-6):length(am)])
   budget[1]<-vsota
 }
 tickers <- stockData$.getSymbols %>% names()
 sel_tickers<-c()
 for (i in m){sel_tickers<-c(sel_tickers,tickers[i])}
 
-portfolioo5<-data.frame(date2,sel_tickers,am)
+portfolioo7<-data.frame(date2,sel_tickers,am)
 
-#write.csv(portfolioo3,"2. podatki/Portfolio3.csv")
+write.csv(portfolioo7,"2. podatki/Portfolio7.csv")
 
