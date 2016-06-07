@@ -25,10 +25,10 @@ shinyUI(
                               "GOOG","MSFT","FB","XOM","GE","CVX","PTR","TOT")),
         selectInput("value", "Vrednost", 
                     choices=c("open", "high", "low",
-                              "close", "volume", "adjusted"),
+                              "close", "volume", "adjusted","change"),
                     selected = "close"),
         hr(),
-        helpText("Izbira delnice.")
+        helpText("Izbira delnice in vrednosti.")
       ),
       
       # Create a spot for the barplot
