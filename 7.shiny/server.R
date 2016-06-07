@@ -11,25 +11,23 @@ source("3. baza/auth_public.R",encoding='UTF-8')
 
 
 # Define a server for the Shiny app
-shinyServer(function(input, output)) {
+shinyServer(function(input, output) {
   conn <- src_postgres(dbname = db, host = host,
                        user = user, password = password)
   tbl.portfolio <- tbl(conn, "portfolio") # tabela s portfelji
   
-  data <- tbl.portfolio %>% filter(index == indeks.portfelja, date2 == datum) %>%
-    select(ticker, am) %>% data.frame()
-  
   # Fill in the spot we created for a plot
   output$portfolio <- renderPlot({
     tab <- tbl.portfolio
+    data <- tab %>% filter(index == indeks.portfelja, date2 == datum) %>%
+      select(ticker, am) %>% data.frame()
     if (input$type != "All") {
-      data
-    }
-    
-    ggplot(data, aes_string(x = "date2", y = "am")) + geom_bar(stat = "identity") +
-      ggtitle(input$index) + xlab("date") + ylab("Asset movement")
+      graf<-ggplot(data, aes_string(x = "index", y = input$value )) +
+        geom_bar(stat = "identity")
+    } else {
+      graf<-ggplot(data, aes_string(x = "index", y = input$value)) + geom_bar(stat = "identity")
+  }
+    graf + ggtitle(input$ticker) + xlab("Ticker") + ylab(input$value)
   })
   
 })
-
-

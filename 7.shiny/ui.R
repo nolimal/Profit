@@ -20,11 +20,16 @@ shinyUI(
         wellPanel(
           p(strong("Portfolio"))
         ),
-        selectInput("portfolio", "Portfolio", 
-                    choices=c("All","Portfolio1","Portfolio3","Portfolio7")),
-                    selected = "close"),
+        dateRangeInput(inputId = "daterange", label = "Date range",
+                       start = startDate, end = Sys.Date()),
+        selectInput("index", "Index", 
+                  choices=c("1", "3", "7"),
+                  ),
+        selectInput("sel_tickers", "Tickers", 
+                    choices=c("1", "3", "7"),
+        ),
         hr(),
-        helpText("Izbira portfolia.")
+        helpText("Izbira datuma in portfolia in nakupnih tickerjev.")
       ),
       
       # Create a spot for the barplot
