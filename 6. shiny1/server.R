@@ -8,7 +8,7 @@ if ("server.R" %in% dir()) {
 }
 source("3. baza/auth_public.R",encoding='UTF-8')
 
-# library(datasets)
+
 
 # Define a server for the Shiny app
 shinyServer(function(input, output) {

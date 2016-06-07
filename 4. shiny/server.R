@@ -8,6 +8,7 @@ if ("server.R" %in% dir()) {
 }
 source("3. baza/auth_public.R",encoding='UTF-8')
 
+
 # shinyServer(function(input, output) {
 #   # Vzpostavimo povezavo
 #   conn <- src_postgres(dbname = db, host = host,
