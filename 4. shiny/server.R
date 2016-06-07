@@ -6,7 +6,7 @@ library(ggplot2)
 if ("server.R" %in% dir()) {
   setwd("..")
 }
-source("3. baza/auth.R",encoding='UTF-8')
+source("3. baza/auth_public.R",encoding='UTF-8')
 
 # shinyServer(function(input, output) {
 #   # Vzpostavimo povezavo
