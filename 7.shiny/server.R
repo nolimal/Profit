@@ -22,12 +22,12 @@ shinyServer(function(input, output) {
     data <- tab %>% filter(index == indeks.portfelja, date2 == datum) %>%
       select(ticker, am) %>% data.frame()
     if (input$type != "All") {
-      graf<-ggplot(data, aes_string(x = "index", y = input$value )) +
+      graf<-ggplot(data, aes_string(x = "date", y = input$sel_tickers)) +
         geom_bar(stat = "identity")
     } else {
-      graf<-ggplot(data, aes_string(x = "index", y = input$value)) + geom_bar(stat = "identity")
+      graf<-ggplot(data, aes_string(x = "date", y = input$sel_tickers)) + geom_bar(stat = "identity")
   }
-    graf + ggtitle(input$ticker) + xlab("Ticker") + ylab(input$value)
+    graf + xlab("Date") + ylab("Asset Movement")
   })
   
 })
