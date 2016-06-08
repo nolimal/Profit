@@ -21,7 +21,7 @@ shinyUI(
           p(strong("Portfolio"))
         ),
         dateRangeInput(inputId = "daterange", label = "Date range",
-                       start = startDate, end = Sys.Date()),
+                       start = "2015-01-05", end = Sys.Date()),
         selectInput("index", "Index", 
                   choices=c("1", "3", "7"),
                   ),
