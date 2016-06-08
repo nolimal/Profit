@@ -109,6 +109,15 @@ Portfolio7<- dbSendQuery(conn, build_sql("CREATE TABLE portfolio7 (
 ))
 
 
+Portfolio<-dbSendQuery(conn, build_sql("CREATE TABLE portfolio (
+                                       index INTEGER,
+                                       date2 DATE,
+                                       sel_tickers TEXT NOT NULL,
+                                       am REAL,
+                                       UNIQUE (index,date2,sel_tickers)
+)"
+))
+
 }, finally = {
   # Prekinemo povezavo
   dbDisconnect(conn)
