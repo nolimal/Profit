@@ -21,12 +21,14 @@ shinyServer(function(input, output) {
     tab <- tbl.portfolio
     data <- tab %>% filter(index == indeks.portfelja, date2 == datum) %>%
       select(ticker, am) %>% data.frame()
-    if (input$type != "All") {
-      graf<-ggplot(data, aes_string(x = "date", y = input$sel_tickers)) +
-        geom_bar(stat = "identity")
-    } else {
-      graf<-ggplot(data, aes_string(x = "date", y = input$sel_tickers)) + geom_bar(stat = "identity")
-  }
+    if (input$type != "All") {break
+    } else {data <- tab %>% filter(index == input$index,
+                                   date2 >= input$daterange[1],
+                                   date2 <= input$daterange[2]) %>%
+      select(date2, sel_tickers, am) %>% data.frame()
+    data$date2 <- as.Date(data$date2)
+    ggplot(data, aes(x = date2, y = am, color = sel_tickers)) +
+      geom_line() + xlab("Date") + ylab("Asset Movement")}
     graf + xlab("Date") + ylab("Asset Movement")
   })
   
