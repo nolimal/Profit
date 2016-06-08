@@ -31,11 +31,7 @@ shinyUI(
         selectInput("ticker", "Ticker:",
                     choices=c("All", "TOT","PTR","CVX","GE","XOM","FB","MSFT","GOOG",
                               "GOOGL","AAPL","HSBC","C","BAC","JPM","WFC"),
-                    selected = "TOT"
-                    # choices = c("Candlestick" = "candlesticks",
-                    #             "Matchstick" = "matchsticks",
-                    #             "Bar" = "bars",
-                    #             "Line" = "line")
+                    selected = "TOT", multiple = TRUE
                     ),
         hr(),
         helpText("Izbira tickerja")
@@ -44,9 +40,9 @@ shinyUI(
       # Create a spot for the barplot
       mainPanel(
         plotOutput("stock_change"),
-        plotOutput("stock_open"),
-        plotOutput("stock_close"),
-        plotOutput("stock_volume")
+        plotOutput("stock_open")
+        # plotOutput("stock_close"),
+        # plotOutput("stock_volume")
       )
       
     )

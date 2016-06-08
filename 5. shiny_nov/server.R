@@ -17,8 +17,8 @@ shinyServer(function(input, output) {
                        user = user, password = password)
   tbl.stock_change <- tbl(conn, "stock")
   tbl.stock_open <- tbl(conn, "stock")
-  tbl.stock_close <- tbl(conn, "stock")
-  tbl.stock_volume <- tbl(conn, "stock")
+  # tbl.stock_close <- tbl(conn, "stock")
+  # tbl.stock_volume <- tbl(conn, "stock")
   
   # Fill in the spot we created for a plot
   output$stock_change <- renderPlot({
@@ -27,9 +27,9 @@ shinyServer(function(input, output) {
       tab <- tab %>% filter(ticker == input$ticker)
     }
     
-    ggplot(data.frame(tab), aes_string(x = "date", y = "change")) + geom_bar(stat = "identity") +
+    ggplot(data.frame(tab), aes_string(x = "date", y = "change", color="ticker")) + geom_bar(stat = "identity") +
       ggtitle(input$ticker) + xlab("Date") + ylab("Change") + 
-      geom_point(aes_string(x = "date", y = "change"), colour='red', size=0.5)
+      geom_point(aes_string(x = "date", y = "change"), colour='blue', size=0.5)
   })
   
   output$stock_open <- renderPlot({
@@ -37,33 +37,33 @@ shinyServer(function(input, output) {
     if (input$ticker != "All") {
       tab <- tab %>% filter(ticker == input$ticker)
     }
-    
-    ggplot(data.frame(tab), aes_string(x = "date", y = "open")) + geom_bar(stat = "identity") +
-      ggtitle(input$ticker) + xlab("Date") + ylab("Open") + 
-      geom_point(aes_string(x = "date", y = "open"), colour='red', size=0.5)
+
+    ggplot(data.frame(tab), aes_string(x = "date", y = "open", color="ticker")) + geom_bar(stat = "identity") +
+      ggtitle(input$ticker) + xlab("Date") + ylab("Open") +
+      geom_point(aes_string(x = "date", y = "open"), colour='blue', size=0.5)
   })
-  
-  output$stock_close <- renderPlot({
-    tab <- tbl.stock_close
-    if (input$ticker != "All") {
-      tab <- tab %>% filter(ticker == input$ticker)
-    }
-    
-    ggplot(data.frame(tab), aes_string(x = "date", y = "close")) + geom_bar(stat = "identity") +
-      ggtitle(input$ticker) + xlab("Date") + ylab("Close") + 
-      geom_point(aes_string(x = "date", y = "close"), colour='red', size=0.5)
-  })
-  
-  output$stock_volume <- renderPlot({
-    tab <- tbl.stock_volume
-    if (input$ticker != "All") {
-      tab <- tab %>% filter(ticker == input$ticker)
-    }
-    
-    ggplot(data.frame(tab), aes_string(x = "date", y = "volume")) + #geom_bar(stat = "identity") +
-      ggtitle(input$ticker) + xlab("Date") + ylab("Volume") + 
-      geom_point(aes_string(x = "date", y = "volume"), colour='blue', size=0.5)
-  })
+
+  # output$stock_close <- renderPlot({
+  #   tab <- tbl.stock_close
+  #   if (input$ticker != "All") {
+  #     tab <- tab %>% filter(ticker == input$ticker)
+  #   }
+  #   
+  #   ggplot(data.frame(tab), aes_string(x = "date", y = "close")) + geom_bar(stat = "identity") +
+  #     ggtitle(input$ticker) + xlab("Date") + ylab("Close") + 
+  #     geom_point(aes_string(x = "date", y = "close"), colour='blue', size=0.5)
+  # })
+  # 
+  # output$stock_volume <- renderPlot({
+  #   tab <- tbl.stock_volume
+  #   if (input$ticker != "All") {
+  #     tab <- tab %>% filter(ticker == input$ticker)
+  #   }
+  #   
+  #   ggplot(data.frame(tab), aes_string(x = "date", y = "volume")) + #geom_bar(stat = "identity") +
+  #     ggtitle(input$ticker) + xlab("Date") + ylab("Volume") + 
+  #     geom_point(aes_string(x = "date", y = "volume"), colour='blue', size=0.5)
+  # })
 })
 
 
