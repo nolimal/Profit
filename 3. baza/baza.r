@@ -115,7 +115,7 @@ Portfolio<-dbSendQuery(conn, build_sql("CREATE TABLE portfolio (
                                        sel_tickers TEXT NOT NULL,
                                        am REAL,
                                        UNIQUE (index,date2,sel_tickers)
-)"
+                                       )"
 ))
 
 }, finally = {
