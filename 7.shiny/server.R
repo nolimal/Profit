@@ -20,7 +20,7 @@ shinyServer(function(input, output) {
   output$portfolio <- renderPlot({
     tab <- tbl.portfolio
     data <- tab %>% filter(index == indeks.portfelja, date2 == datum) %>%
-      select(ticker, am) %>% data.frame()
+      select(sel_tickers, am) %>% data.frame()
     if (input$type != "All") {break
     } else {data <- tab %>% filter(index == input$index,
                                    date2 >= input$daterange[1],
