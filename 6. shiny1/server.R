@@ -23,11 +23,11 @@ shinyServer(function(input, output) {
       max.index <- tab %>% summarise(max(index)) %>% data.frame() %>% .[,1] %>%
         strftime() # pridobimo čas najnovejših vrednosti in samo te prikažemo
       graf <- ggplot(tab %>% filter(index == max.index) %>% data.frame(),
-                     aes_string(x = "ticker", y = input$value)) +
+                     aes_string(x = "ticker", y = input$value, color="ticker")) +
         geom_bar(stat = "identity")
     } else { # prikazujemo posamezno delnico
       graf <- ggplot(tab %>% filter(ticker == input$ticker) %>% data.frame(),
-                     aes_string(x = "index", y = input$value)) + geom_line()
+                     aes_string(x = "index", y = input$value, color="ticker")) + geom_line()
     }
     graf + ggtitle(input$ticker) + xlab("Ticker") + ylab(input$value)
   })
