@@ -26,7 +26,7 @@ shinyUI(
                   choices=c("1", "3", "7"),
                   ),
         hr(),
-        helpText("Izbira datuma in portfolia in nakupnih tickerjev.")
+        helpText("Izbira datuma in portfolia.")
       ),
       
       # Create a spot for the barplot
