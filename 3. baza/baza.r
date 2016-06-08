@@ -177,7 +177,7 @@ grant_table <- function(){
     # Vzpostavimo povezavo
     conn <- dbConnect(drv, dbname = db, host = host,
                       user = user, password = password)
-    dbSendQuery(conn, build_sql('GRANT ALL ON company,stock TO vids,rokv,matevzn'))
+    dbSendQuery(conn, build_sql('GRANT ALL ON company,stock,portfolio TO vids,rokv,matevzn,javnost'))
   }, finally = {
     dbDisconnect(conn)
   })
