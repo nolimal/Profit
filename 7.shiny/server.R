@@ -27,9 +27,9 @@ shinyServer(function(input, output) {
                                    date2 <= input$daterange[2]) %>%
       select(date2, sel_tickers, am) %>% data.frame()
     data$date2 <- as.Date(data$date2)
-    ggplot(data, aes(x = date2, y = am, color = sel_tickers)) +
+    graf<-ggplot(data, aes(x = date2, y = am, color = sel_tickers)) +
       geom_line() + xlab("Date") + ylab("Asset Movement")}
-    graf + xlab("Date") + ylab("Asset Movement")
+    graf
   })
   
 })

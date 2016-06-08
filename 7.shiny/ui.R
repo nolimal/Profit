@@ -25,9 +25,6 @@ shinyUI(
         selectInput("index", "Index", 
                   choices=c("1", "3", "7"),
                   ),
-        selectInput("sel_tickers", "Tickers", 
-                    choices=c("1", "3", "7"),
-        ),
         hr(),
         helpText("Izbira datuma in portfolia in nakupnih tickerjev.")
       ),
