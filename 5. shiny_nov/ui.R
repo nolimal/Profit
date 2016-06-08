@@ -1,7 +1,5 @@
 library(shiny)
 
-
-
 # Izbira
 library(datasets)
 
@@ -12,23 +10,43 @@ shinyUI(
   fluidPage(    
     
     # Give the page a title
-    titlePanel("Companies by type"),
+    titlePanel("Companies by ticker"),
     
     # Generate a row with a sidebar
     sidebarLayout(      
       
       # Define the sidebar with one input
       sidebarPanel(
-        selectInput("ticker", "Ticker:", 
+        # wellPanel(
+        #   p(strong("stock")),
+        #   checkboxInput(inputId = "AAPL", label = "Apple (AAPL)",     value = TRUE)
+        # ),
+        # selectInput(inputId="ticker",
+        #             label="Ticker",
+        #             choices = c("Candlestick" = "candlesticks",
+        #                         "Matchstick" = "matchsticks",
+        #                         "Bar" = "bars",
+        #                         "Line" = "line")
+        #             ),
+        selectInput("ticker", "Ticker:",
                     choices=c("All", "TOT","PTR","CVX","GE","XOM","FB","MSFT","GOOG",
-                              "GOOGL","AAPL","HSBC","C","BAC","JPM","WFC")),
+                              "GOOGL","AAPL","HSBC","C","BAC","JPM","WFC"),
+                    selected = "TOT"
+                    # choices = c("Candlestick" = "candlesticks",
+                    #             "Matchstick" = "matchsticks",
+                    #             "Bar" = "bars",
+                    #             "Line" = "line")
+                    ),
         hr(),
-        helpText("Izbira tipa.")
+        helpText("Izbira tickerja")
       ),
-      
+
       # Create a spot for the barplot
       mainPanel(
-        plotOutput("stock")  
+        plotOutput("stock_change"),
+        plotOutput("stock_open"),
+        plotOutput("stock_close"),
+        plotOutput("stock_volume")
       )
       
     )
