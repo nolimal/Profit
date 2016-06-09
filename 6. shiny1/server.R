@@ -29,7 +29,7 @@ shinyServer(function(input, output) {
       graf <- ggplot(tab %>% filter(ticker == input$ticker) %>% data.frame(),
                      aes_string(x = "index", y = input$value, color="ticker")) + geom_line()
     }
-    graf + ggtitle(input$ticker) + xlab("Ticker") + ylab(input$value)
+    graf + ggtitle(input$ticker) + xlab("Date") + ylab(input$value)
   })
   
 })

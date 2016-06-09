@@ -21,9 +21,9 @@ shinyUI(
           p(strong("Portfolio"))
         ),
         dateRangeInput(inputId = "daterange", label = "Date range",
-                       start = "2015-01-05", end = Sys.Date()),
+                       start = "2016-01-05", end = Sys.Date()),
         selectInput("index", "Index", 
-                  choices=c("1", "3", "7"),
+                  choices=c("All", "1", "3", "7")
                   ),
         hr(),
         helpText("Izbira datuma in portfolia.")
@@ -31,7 +31,8 @@ shinyUI(
       
       # Create a spot for the barplot
       mainPanel(
-        plotOutput("portfolio")  
+        plotOutput("portfolio"),
+        tableOutput("tickers")
       )
       
     )

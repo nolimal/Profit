@@ -22,9 +22,12 @@ shinyServer(function(input, output) {
   
   # Fill in the spot we created for a plot
   output$stock_change <- renderPlot({
+    validate(need(length(input$ticker) > 0, "Izberi vsaj en ticker!"))
     tab <- tbl.stock_change
-    if (input$ticker != "All") {
+    if (length(input$ticker) == 1) {
       tab <- tab %>% filter(ticker == input$ticker)
+    } else {
+      tab <- tab %>% filter(ticker %in% input$ticker)
     }
     
     ggplot(data.frame(tab), aes_string(x = "date", y = "change", color="ticker")) + geom_bar(stat = "identity") +
@@ -33,9 +36,12 @@ shinyServer(function(input, output) {
   })
   
   output$stock_open <- renderPlot({
-    tab <- tbl.stock_open
-    if (input$ticker != "All") {
+    validate(need(length(input$ticker) > 0, "Izberi vsaj en ticker!"))
+    tab <- tbl.stock_change
+    if (length(input$ticker) == 1) {
       tab <- tab %>% filter(ticker == input$ticker)
+    } else {
+      tab <- tab %>% filter(ticker %in% input$ticker)
     }
 
     ggplot(data.frame(tab), aes_string(x = "date", y = "open", color="ticker")) + geom_bar(stat = "identity") +

@@ -29,7 +29,7 @@ shinyUI(
         #                         "Line" = "line")
         #             ),
         selectInput("ticker", "Ticker:",
-                    choices=c("All", "TOT","PTR","CVX","GE","XOM","FB","MSFT","GOOG",
+                    choices=c("TOT","PTR","CVX","GE","XOM","FB","MSFT","GOOG",
                               "GOOGL","AAPL","HSBC","C","BAC","JPM","WFC"),
                     selected = "TOT", multiple = TRUE
                     ),
