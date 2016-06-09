@@ -89,7 +89,8 @@ shinyUI(
                                          "close", "volume", "adjusted","change"),
                                selected = "close"),
                    hr(),
-                   helpText("Izbira delnice in vrednosti.")
+                   helpText("Izbira delnice in vrednosti. Pri izbiri All se prikažejo različne vrednosti
+                            zadnjega dne")
                  ),
                  
                  # Create a spot for the barplot
@@ -111,7 +112,7 @@ shinyUI(
                      p(strong("Portfolio"))
                    ),
                    dateRangeInput(inputId = "daterange", label = "Date range",
-                                  start = "2016-01-05", end = Sys.Date()),
+                                  start = "2015-01-05", end = Sys.Date()),
                    selectInput("index", "Index", 
                                choices=c("All", "1", "3", "7")
                    ),

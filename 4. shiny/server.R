@@ -18,6 +18,7 @@ shinyServer(function(input, output) {
   tbl.portfolio <- tbl(conn, "portfolio")
   
 ######################################################
+#Companies by type  
   
   # Fill in the spot we created for a plot
   output$company <- renderPlot({
@@ -31,7 +32,8 @@ shinyServer(function(input, output) {
   })
   
 ######################################################
-  
+#Companies by ticker 
+   
   output$stock <- renderPlot({
     validate(need(length(input$ticker) > 0, "Izberi vsaj en ticker!"))
     tab <- tbl.stock
@@ -41,12 +43,14 @@ shinyServer(function(input, output) {
       tab <- tab %>% filter(ticker %in% input$ticker)
     }
     
-    ggplot(data.frame(tab), aes_string(x = "date", y = input$value, color="ticker")) + geom_bar(stat = "identity") +
+    ggplot(data.frame(tab), aes_string(x = "date", y = input$value, color="ticker",fill="ticker")) + geom_bar(stat = "identity") +
       ggtitle(input$ticker) + xlab("Date") + ylab(input$value) + 
       geom_point(aes_string(x = "date", y = input$value), colour='blue', size=0.5)
   })
   
 ######################################################
+#Stock Data  
+  
   
   output$stock1 <- renderPlot({
     tab <- tbl.stock1
@@ -54,16 +58,20 @@ shinyServer(function(input, output) {
       max.index <- tab %>% summarise(max(index)) %>% data.frame() %>% .[,1] %>%
         strftime() # pridobimo čas najnovejših vrednosti in samo te prikažemo
       graf <- ggplot(tab %>% filter(index == max.index) %>% data.frame(),
-                     aes_string(x = "ticker", y = input$value1, color="ticker")) +
+                     aes_string(x = "ticker", y = input$value1, fill="ticker")) +
         geom_bar(stat = "identity")
+      graf + ggtitle("All")+ xlab("Ticker") 
     } else { # prikazujemo posamezno delnico
       graf <- ggplot(tab %>% filter(ticker == input$ticker1) %>% data.frame(),
-                     aes_string(x = "index", y = input$value1, color="ticker")) + geom_line()
+                     aes_string(x = "index", y = input$value1, fill="ticker")) + geom_line()
+      graf + ggtitle(input$ticker1) + xlab("Date") + ylab(input$value1)
     }
-    graf + ggtitle(input$ticker1) + xlab("Date") + ylab(input$value1)
   })
   
-######################################################
+
+  
+  ######################################################
+  #Portfolio Analysis
   
   portfolio.data <- reactive({
     data <- tbl.portfolio
@@ -86,10 +94,15 @@ shinyServer(function(input, output) {
   })
   
   output$portfolio <- renderPlot({
-    data <- portfolio.data()
-    graf <- ggplot(data, aes(x = date2, y = am, color = index, group = index)) +
-      geom_line() + xlab("Date") + ylab("Asset Movement")
-    graf
+    if (input$index == "All") {
+      guide <- guide_legend(title = "Index")
+    } else {
+      guide <- FALSE
+    }
+    ggplot(portfolio.data(),
+           aes(x = date2, y = am, color = factor(index), group = index)) +
+      geom_line() + xlab("Date") + ylab("Asset Movement") +
+      scale_color_discrete(guide = guide)
   })
   
   output$tickers <- renderTable({
