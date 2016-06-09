@@ -116,7 +116,7 @@ shinyUI(
                                choices=c("All", "1", "3", "7")
                    ),
                    hr(),
-                   helpText("Izbira časovnega obdobja in strategije. Indeks=i označuje strategijo i,
+                   helpText("Izbira časovnega obdobja in strategije. Indeks i označuje strategijo i,
                             ki nam pove: vsak dan izberi i najbolj donosnih delnic prejšnjega dne in jih 
                             kupi po open price tega dne. Tabela pod grafom nam izpiše katere delnice
                             naj kupimo v določenem dnevu.")

@@ -14,3 +14,6 @@ Zadevo poženi v naslednje vrstnem redu:
 3. portfolio.R
 4. auth.R
 5. baza.R
+
+- oz. odpri program.R in ga poženi
+- nato odpri aplikacijo Shiny
