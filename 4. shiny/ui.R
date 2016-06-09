@@ -57,7 +57,7 @@ shinyUI(
                                          "close", "volume", "adjusted","change"),
                                selected = "open"),
                    hr(),
-                   helpText("Izbira tickerja")
+                   helpText("Izbira tickerjev in vrednosti")
                  ),
                  
                  # Create a spot for the barplot
@@ -116,7 +116,10 @@ shinyUI(
                                choices=c("All", "1", "3", "7")
                    ),
                    hr(),
-                   helpText("Izbira datuma in portfolia.")
+                   helpText("Izbira časovnega obdobja in strategije. Indeks=i označuje strategijo i,
+                            ki nam pove: vsak dan izberi i najbolj donosnih delnic prejšnjega dne in jih 
+                            kupi po open price tega dne. Tabela pod grafom nam izpiše katere delnice
+                            naj kupimo v določenem dnevu.")
                  ),
                  
                  # Create a spot for the barplot
