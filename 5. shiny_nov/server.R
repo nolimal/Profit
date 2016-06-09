@@ -8,15 +8,12 @@ if ("server.R" %in% dir()) {
 }
 source("3. baza/auth_public.R",encoding='UTF-8')
 
-
-# library(datasets)
-
 # Define a server for the Shiny app
 shinyServer(function(input, output) {
   conn <- src_postgres(dbname = db, host = host,
                        user = user, password = password)
   tbl.stock_change <- tbl(conn, "stock")
-  tbl.stock_open <- tbl(conn, "stock")
+  # tbl.stock_open <- tbl(conn, "stock")
   # tbl.stock_close <- tbl(conn, "stock")
   # tbl.stock_volume <- tbl(conn, "stock")
   
@@ -30,24 +27,24 @@ shinyServer(function(input, output) {
       tab <- tab %>% filter(ticker %in% input$ticker)
     }
     
-    ggplot(data.frame(tab), aes_string(x = "date", y = "change", color="ticker")) + geom_bar(stat = "identity") +
-      ggtitle(input$ticker) + xlab("Date") + ylab("Change") + 
-      geom_point(aes_string(x = "date", y = "change"), colour='blue', size=0.5)
+    ggplot(data.frame(tab), aes_string(x = "date", y = input$value, color="ticker")) + geom_bar(stat = "identity") +
+      ggtitle(input$ticker) + xlab("Date") + ylab(input$value) + 
+      geom_point(aes_string(x = "date", y = input$value), colour='blue', size=0.5)
   })
   
-  output$stock_open <- renderPlot({
-    validate(need(length(input$ticker) > 0, "Izberi vsaj en ticker!"))
-    tab <- tbl.stock_change
-    if (length(input$ticker) == 1) {
-      tab <- tab %>% filter(ticker == input$ticker)
-    } else {
-      tab <- tab %>% filter(ticker %in% input$ticker)
-    }
-
-    ggplot(data.frame(tab), aes_string(x = "date", y = "open", color="ticker")) + geom_bar(stat = "identity") +
-      ggtitle(input$ticker) + xlab("Date") + ylab("Open") +
-      geom_point(aes_string(x = "date", y = "open"), colour='blue', size=0.5)
-  })
+#   output$stock_open <- renderPlot({
+#     validate(need(length(input$ticker) > 0, "Izberi vsaj en ticker!"))
+#     tab <- tbl.stock_change
+#     if (length(input$ticker) == 1) {
+#       tab <- tab %>% filter(ticker == input$ticker)
+#     } else {
+#       tab <- tab %>% filter(ticker %in% input$ticker)
+#     }
+# 
+#     ggplot(data.frame(tab), aes_string(x = "date", y = "open", color="ticker")) + geom_bar(stat = "identity") +
+#       ggtitle(input$ticker) + xlab("Date") + ylab("Open") +
+#       geom_point(aes_string(x = "date", y = "open"), colour='blue', size=0.5)
+#   })
 
   # output$stock_close <- renderPlot({
   #   tab <- tbl.stock_close

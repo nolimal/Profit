@@ -33,14 +33,18 @@ shinyUI(
                               "GOOGL","AAPL","HSBC","C","BAC","JPM","WFC"),
                     selected = "TOT", multiple = TRUE
                     ),
+        selectInput("value", "Vrednost", 
+                    choices=c("open", "high", "low",
+                              "close", "volume", "adjusted","change"),
+                    selected = "close"),
         hr(),
         helpText("Izbira tickerja")
       ),
 
       # Create a spot for the barplot
       mainPanel(
-        plotOutput("stock_change"),
-        plotOutput("stock_open")
+        plotOutput("stock_change")
+        # plotOutput("stock_open")
         # plotOutput("stock_close"),
         # plotOutput("stock_volume")
       )

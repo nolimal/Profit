@@ -1,0 +1,8 @@
+source('U:/Profit/2. podatki/uvoz.R', encoding = 'UTF-8')
+source('U:/Profit/2. podatki/Podatki.R', encoding = 'UTF-8')
+source('U:/Profit/2. podatki/portfolio1.R')
+source('U:/Profit/2. podatki/portfolio3.R')
+source('U:/Profit/2. podatki/portfolio7.R')
+source('U:/Profit/3. baza/auth.R')
+source('U:/Profit/3. baza/auth_public.R')
+source('U:/Profit/3. baza/baza.r', encoding = 'UTF-8')
